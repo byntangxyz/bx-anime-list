@@ -6,7 +6,11 @@ import Image from "next/image";
 
 interface Anime {
   mal_id: number;
-  images: any;
+  images: {
+    jpg: {
+      image_url: string;
+    };
+  };
   title: string;
 }
 
