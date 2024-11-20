@@ -28,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="bg-blue-950 text-white text-6xl p-4">BxNime List</header>
         {children}
       </body>
     </html>
