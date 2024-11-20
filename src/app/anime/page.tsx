@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import axios from "axios";
+import Image from "next/image";
 
 interface Anime {
   mal_id: number;
@@ -35,7 +36,7 @@ const AnimeList = () => {
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
         {animeList.map((anime: Anime) => (
           <div key={anime.mal_id} className="border rounded shadow">
-            <img
+            <Image
               src={anime.images.jpg.image_url}
               alt={anime.title}
               className="w-full h-40 object-cover rounded-t"
