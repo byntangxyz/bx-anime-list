@@ -4,9 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+// Definisikan tipe untuk hasil pencarian Anime
+interface Anime {
+  mal_id: number;
+  title: string;
+  images: {
+    jpg: {
+      image_url: string;
+    };
+  };
+}
+
 export default function SearchAnime() {
   const [query, setQuery] = useState<string>("");
-  const [searchResults, setSearchResults] = useState<any[]>([]);
+  const [searchResults, setSearchResults] = useState<Anime[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSearch = async () => {

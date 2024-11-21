@@ -5,8 +5,20 @@ import Link from "next/link";
 import SearchAnime from "@/components/Search";
 import Image from "next/image";
 
+// Definisikan tipe data untuk Anime
+interface Anime {
+  mal_id: number;
+  title: string;
+  images: {
+    jpg: {
+      image_url: string;
+    };
+  };
+}
+
 export default function Home() {
-  const [animeList, setAnimeList] = useState<any[]>([]);
+  // Menggunakan tipe yang lebih spesifik untuk animeList
+  const [animeList, setAnimeList] = useState<Anime[]>([]);
 
   useEffect(() => {
     fetch("https://api.jikan.moe/v4/anime") // Ganti URL sesuai API kamu

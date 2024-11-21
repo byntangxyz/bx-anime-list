@@ -1,15 +1,29 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
-export default function AnimeDetail({
-  params,
-}: {
+// Definisikan tipe data untuk Anime
+interface Anime {
+  title: string;
+  synopsis: string;
+  images: {
+    jpg: {
+      large_image_url: string;
+    };
+  };
+  trailer?: {
+    embed_url: string;
+  };
+}
+
+interface AnimeDetailProps {
   params: Promise<{ id: string }>;
-}) {
-  const [anime, setAnime] = useState<any>(null);
+}
+
+export default function AnimeDetail({ params }: AnimeDetailProps) {
+  // Menggunakan tipe yang lebih spesifik, Anime atau null
+  const [anime, setAnime] = useState<Anime | null>(null);
   const [loading, setLoading] = useState(true);
 
   // Menggunakan React.use() untuk menunggu params
@@ -46,7 +60,7 @@ export default function AnimeDetail({
   }
 
   return (
-    <div className=" mx-auto p-4 md:px-12 bg-slate-950">
+    <div className="mx-auto p-4 md:px-12 bg-slate-950">
       <h1 className="text-3xl text-white mb-4">{anime.title}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <Image
