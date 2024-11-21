@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { useState, useEffect } from "react";
 
@@ -48,7 +49,7 @@ export default function AnimeDetail({
     <div className=" mx-auto p-4 md:px-12 bg-slate-950">
       <h1 className="text-3xl text-white mb-4">{anime.title}</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <img
+        <Image
           src={anime.images.jpg.large_image_url}
           alt={anime.title}
           className="rounded-lg"

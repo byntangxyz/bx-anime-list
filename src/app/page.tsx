@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import SearchAnime from "@/components/Search";
+import Image from "next/image";
 
 export default function Home() {
   const [animeList, setAnimeList] = useState<any[]>([]);
@@ -23,7 +24,7 @@ export default function Home() {
         {animeList.map((anime) => (
           <Link href={`/anime/${anime.mal_id}`} key={anime.mal_id}>
             <div className="card bg-gray-800 hover:bg-gray-700 p-4 rounded-lg">
-              <img
+              <Image
                 src={anime.images.jpg.image_url}
                 alt={anime.title}
                 className="w-full h-64 object-cover rounded-lg"

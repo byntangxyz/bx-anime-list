@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
@@ -55,7 +56,7 @@ export default function SearchAnime() {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 bg-slate-600">
           {searchResults.map((anime) => (
             <div key={anime.mal_id} className="anime-card">
-              <img
+              <Image
                 src={anime.images.jpg.image_url}
                 alt={anime.title}
                 className="rounded-lg"
