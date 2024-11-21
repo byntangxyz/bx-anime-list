@@ -43,6 +43,8 @@ const AnimeList = () => {
             <Image
               src={anime.images.jpg.image_url}
               alt={anime.title}
+              width={500}
+              height={750}
               className="w-full h-40 object-cover rounded-t"
             />
             <div className="p-2">

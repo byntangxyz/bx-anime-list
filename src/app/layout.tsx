@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -28,7 +29,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <header className="bg-blue-950 text-white text-6xl p-4">BxNime List</header>
+        <header className="bg-blue-950 text-white text-4xl p-4 ">
+          BxNime List <Link href={"/"} className="text-blue-300 ml-12">Home</Link>
+        </header>
         {children}
       </body>
     </html>
